@@ -1,0 +1,102 @@
+﻿TOPIK ;SOAL ;OPSI_A;OPSI_B;OPSI_C;OPSI_D;JAWABAN
+ALJABAR;Hasil dari (2x - 3)(x + 1) =;2x² - x - 3;2x² + x - 3;2x² - 5x - 3;2x² + 5x - 3;A
+ALJABAR;Faktorisasi dari a² - 9 =;(a - 3)²;(a + 3)²;(a - 3)(a + 3);(a - 9)(a + 1);C
+ALJABAR;Nilai dari (-2)⁴ =;-8;8;-16;16;D
+ALJABAR;Bentuk sederhana dari (b⁸)¹/⁴ =;b²;b³;b⁴;b⁶;A
+ALJABAR;Sederhanakan (4x³y²) / (2xy) =;2x²y;2x²;2y;2xy;A
+ALJABAR;Nilai dari √75 - √3 =;2√3;4√3;6√3;8√3;B
+ALJABAR;Bentuk rasional dari 2 / (√3 - 1) =;√3 - 1;√3 + 1;2(√3 - 1);2(√3 + 1);B
+ALJABAR;Jika 5^(x+1) = 25, maka nilai x =;0;1;2;3;B
+ALJABAR;Himpunan penyelesaian 2x² - 5x + 2 = 0 adalah?;{1/2, 2};{-1/2, -2};{1, 2};{-1, -2};A
+TRIGONOMETRI;Nilai dari sin 45° + cos 45° =;1;√2;2√2;0;B
+TRIGONOMETRI;Nilai dari tan 60° - tan 30° =;0;2/√3;√3/3;2√3/3;B
+TRIGONOMETRI;Jika sin x = 3/5 dan x sudut lancip, maka cos x =;(4/5);(-4/5);(5/4);(-5/4);A
+TRIGONOMETRI;Grafik fungsi y = 2 sin x memiliki amplitudo...;1;2;-2;π;B
+TRIGONOMETRI;Nilai maksimum fungsi y = 3 cos x - 1 =;2;-4;3;-1;A
+TRIGONOMETRI;Nilai dari cos 30° =;(1/2);√2/2;√3/2;1;C
+TRIGONOMETRI;Nilai dari sin 60° =;(1/2);√2/2;√3/2;1;C
+TRIGONOMETRI;Nilai dari tan 30° =;1/√3;1;√3;tak terdefinisi;A
+TRIGONOMETRI;Identitas trigonometri 1 + tan²x =;sin²x;cos²x;sec²x;csc²x;C
+TRIGONOMETRI;Periode fungsi sin 3x =;π/3;2π/3;π;2π;B
+KALKULUS;Turunan dari y = (2x + 1)³ =;3(2x + 1)²;6(2x + 1)²;3(2)²;6(2);B
+KALKULUS;Integral dari (3x² + 2x) dx =;x³ + x² + C;6x + 2 + C;3x³ + 2x² + C;x³ + 2x² + C;A
+KALKULUS;lim x→∞ (x³ + 2x) / (2x³ - x) =;0;(1/2);2;∞;B
+KALKULUS;Turunan dari y = e^(2x+1) =;e^(2x+1);2e^(2x+1);(2x+1)e^(2x);(2x+1)e^(2x+1);B
+KALKULUS;Integral dari cos 2x dx =;2 sin 2x + C;(1/2) sin 2x + C;-2 sin 2x + C;-(1/2) sin 2x + C;B
+KALKULUS;Turunan dari 4x⁵ =;4x⁴;9x⁴;20x⁴;24x⁴;C
+KALKULUS;Integral dari 2x dx =;x² + C;3x² + C;4x² + C;x³ + C;A
+KALKULUS;lim x→2 (x² - 4)/(x - 2) =;0;2;4;tak hingga;C
+KALKULUS;Turunan dari cos x =;sin x;-sin x;tan x;-tan x;B
+KALKULUS;Integral dari sin x dx =;cos x + C;-cos x + C;tan x + C;-tan x + C;B
+GEOMETRI ANALITIK;Persamaan garis melalui (2, -3) dengan gradien -1/2 =;y = -1/2x - 2;y = -1/2x + 2;y = -2x - 7;y = -2x + 1;B
+GEOMETRI ANALITIK;Jarak titik (0, 0) ke garis 3x + 4y - 10 = 0 =;1;2;3;4;B
+GEOMETRI ANALITIK;Persamaan garis yang tegak lurus y = 2x - 3 dan melalui (4, 1) =;y = -1/2x + 3;y = 1/2x - 1;y = 2x - 7;y = -2x + 9;A
+GEOMETRI ANALITIK;Titik pusat lingkaran x² + y² - 4x + 6y + 9 = 0 =;(2, -3);(-2, 3);(4, -6);(-4, 6);A
+GEOMETRI ANALITIK;Fokus elips dengan persamaan x²/16 + y²/9 = 1 adalah...;(√7, 0) dan (-√7, 0);(7, 0) dan (-7, 0);(0, √7) dan (0, -√7);(0, 7) dan (0, -7);A
+GEOMETRI ANALITIK;Persamaan garis melalui (-1, 1) dan (1, 3) =;y = x + 2;y = x - 2;y = 2x + 3;y = 2x - 1;A
+GEOMETRI ANALITIK;Jarak antara titik (1, 4) dan (4, 0) =;3;4;5;6;C
+GEOMETRI ANALITIK;Titik tengah segmen garis dengan ujung (-2, 0) dan (2, 4) =;(0, 2);(2, 0);(0, -2);(-2, 0);A
+GEOMETRI ANALITIK;Gradien garis sejajar terhadap y = -3x + 1 =;(-1/3);(1/3);-3;3;C
+GEOMETRI ANALITIK;Persamaan lingkaran berpusat di (1, -2) dan berjari-jari 2 =;(x - 1)² + (y + 2)² = 2;(x + 1)² + (y - 2)² = 4;(x - 1)² + (y + 2)² = 4;(x + 1)² + (y - 2)² = 2;C
+PELUANG;Dua dadu dilempar bersamaan, peluang jumlah mata dadu 7 =;(1/36);(1/7);(7/36);(1/2);B
+PELUANG;Dari 10 siswa dipilih 3 untuk lomba, banyak cara pemilihan =;30;120;720;5040;B
+PELUANG;Peluang munculnya paling sedikit satu angka pada pelemparan 2 koin =;(1/4);(1/2);(3/4);1;C
+PELUANG;Dalam kotak ada 5 kelereng merah dan 3 kelereng biru, peluang terambil 2 merah sekaligus =;(5/14);(10/56);(10/28);15/56;A
+PELUANG;Jika P(A) = 0.4 dan P(B) = 0.5 serta P(A ∩ B) = 0.2, maka P(A ∪ B) =;0.1;0.7;0.9;1.1;B
+PELUANG;Tiga koin dilempar, peluang muncul ketiganya angka =;(1/8);(3/8);(1/2);(7/8);A
+PELUANG;Dua kartu diambil tanpa pengembalian dari set kartu bridge, peluang keduanya As =;1/221;2/221;4/221;6/221;A
+PELUANG;Peluang muncul paling banyak satu gambar pada pelemparan 3 koin =;(1/8);(3/8);(1/2);(7/8);C
+PELUANG;Ada 4 bola merah dan 2 bola putih, peluang terambil bola putih =;(1/3);(2/3);(1/2);(1/4);A
+PELUANG;Jika P(A) = 0.6 dan P(B) = 0.3 serta A dan B saling lepas, P(A atau B) =;0.18;0.3;0.6;0.9;D
+VEKTOR;Hasil kali titik vektor (2, -1, 3) dan (1, 4, -2) =;-6;6;-8;8;A
+VEKTOR;Vektor satuan searah dengan vektor (3, -4, 0) =;(3/5, -4/5, 0);(-3/5, 4/5, 0);(3, -4, 0);(-3, 4, 0);A
+VEKTOR;Jika a = (2, 1, -1) dan b = (-1, 3, 2), maka 2a + b =;(3, 5, 0);(3, -1, 0);(5, 5, 0);(5, -1, 0);A
+VEKTOR;Proyeksi skalar vektor a pada vektor b dirumuskan...;(a.b) /;a;;(a.b) /;B
+VEKTOR;Vektor yang tegak lurus terhadap (1, 1, 0) dan (0, 1, 1) adalah...;(1, -1, 1);(-1, 1, -1);(1, 1, -2);(-1, -1, 2);A
+VEKTOR;Vektor dengan titik awal (-1, 3) dan titik akhir (2, 1) =;(3, -2);(-3, 2);(1, 4);(-1, -2);A
+VEKTOR;Panjang vektor (-5, 12) =;7;13;17;169;B
+VEKTOR;Hasil kali skalar (-2) . (3, -4) =;(-6, 8);(1, -8);(-5, 8);(6, -8);A
+VEKTOR;Vektor satuan dari (-3, -4) =;(-3/5, -4/5);(3/5, 4/5);(-0.6, -0.8);(0.6, 0.8);A
+VEKTOR;Jika vektor a = (1, -2) dan b = (3, 1), maka a - b =;(-2, -3);(2, 3);(4, -1);(-4, 1);A
+MATRIKS;Hasil perkalian matriks [[1, 2], [0, -1]] dengan [[3], [1]] =;[[5], [-1]];[[5], [1]];[[3, 2], [0, -1]];[[3, 1], [0, -1]];A
+MATRIKS;Determinan matriks [[2, 1, 0], [1, 0, -1], [0, 2, 1]] =;5;-5;3;-3;A
+MATRIKS;Hasil perkalian matriks [[2, -1]] dengan [[1], [3]] =;[[-1]];[[5]];[[2, -3]];[[2], [-3]];A
+MATRIKS;Determinan matriks [[-1, 2], [3, -4]] =;-2;2;10;-10;A
+MATRIKS;Invers dari matriks [[2, 0], [0, 3]] =;[[1/2, 0], [0, 1/3]];[[2, 0], [0, 3]];[[-2, 0], [0, -3]];[[0, 1/2], [1/3, 0]];A
+MATRIKS;Transpose dari [[-1, 0, 2]] =;[[-1], [0], [2]];[[2, 0, -1]];[[-1, 0, 2]];[[1, 0, -2]];A
+MATRIKS;Jika A = [[0, 1], [1, 0]], maka A² =;[[1, 0], [0, 1]];[[0, 1], [1, 0]];[[0, 0], [1, 1]];[[1, 1], [0, 0]];A
+BILANGAN KOMPLEKS;(-1 + 2i) + (3 - 4i) =;2 - 2i;2 + 2i;-4 + 6i;-4 - 6i;A
+BILANGAN KOMPLEKS;(5 - 3i) - (1 - 2i) =;4 - i;4 + i;6 - 5i;6 + 5i;A
+BILANGAN KOMPLEKS;(2 - i)(2 + i) =;3;5;4 - i²;4 + i²;B
+BILANGAN KOMPLEKS;Konjugat dari -4 + 3i =;4 - 3i;-4 - 3i;4 + 3i;-3 - 4i;B
+BILANGAN KOMPLEKS;Modulus dari -3 - 4i =;1;5;-7;25;B
+BARIS DAN DERET;Suku ke-8 dari barisan aritmatika 3, 7, 11,... =;27;31;35;39;A
+BARIS DAN DERET;Jumlah 4 suku pertama deret geometri 2 + 6 + 18 + ... =;40;80;160;242;B
+BARIS DAN DERET;Beda dari barisan aritmatika 5, 1, -3,... =;4;-4;6;-6;B
+BARIS DAN DERET;Rasio dari barisan geometri -2, 4, -8,... =;-2;2;-4;4;A
+BARIS DAN DERET;Suku ke-n dari barisan geometri dengan suku pertama a dan rasio r adalah...;arⁿ;arⁿ⁻¹;a + (n - 1)r;a - (n - 1)r;B
+FUNGSI;Domain fungsi f(x) = √(4 - x) =;x ≥ 4;x > 4;x ≤ 4;x < 4;C
+FUNGSI;Range fungsi f(x) = x² + 1 =;y ≥ 1;y > 1;y ≤ 1;semua bilangan real;A
+FUNGSI;Jika f(x) = 3x - 2 dan g(x) = 2x + 1, maka (g o f)(x) =;6x - 3;6x - 1;6x + 1;6x + 3;B
+FUNGSI;Invers dari fungsi f(x) = 2x - 6 =;f⁻¹(x) = (x + 6)/2;f⁻¹(x) = (x - 6)/2;f⁻¹(x) = 2x + 6;f⁻¹(x) = 2x - 6;A
+FUNGSI;Grafik fungsi kuadrat y = -x² + 9 memotong sumbu x di titik...;(3, 0) dan (-3, 0);(9, 0) dan (-9, 0);(0, 3) dan (0, -3);(0, 9) dan (0, -9);A
+LIMIT;Nilai dari lim x→∞ (3x² - x + 2) / (2x² + 1) =;0;(3/2);(2/3);∞;B
+LIMIT;Nilai dari lim x→0 (1 - cos² x) / x² =;0;1;(1/2);∞;B
+LIMIT;Nilai dari lim x→3 (x² - 9) / (x - 3) =;0;3;6;∞;C
+LIMIT;Fungsi f(x) dikatakan terdiferensiasi di x = c jika...;f(c) ada;lim x→c f(x) ada;f kontinu di c;lim h→0 (f(c + h) - f(c))/h ada;D
+LIMIT;Nilai dari lim x→0 sin 2x / tan x =;0;1;2;∞;C
+TURUNAN;Turunan dari y = √(3x + 1) =;3/(2√(3x + 1));2√(3x + 1)/3;2/(3√(3x + 1));3√(3x + 1)/2;A
+TURUNAN;Turunan dari y = x² cos x =;2x sin x;-2x sin x;2x cos x - x² sin x;2x cos x + x² sin x;C
+TURUNAN;Turunan dari y = e^(3x²) =;6xe^(3x²);3x²e^(3x²);e^(6x);e^(3x²);A
+TURUNAN;Gradien garis singgung kurva y = x³ - 2x di x = -1 =;1;-1;5;-5;A
+TURUNAN;Titik belok fungsi f(x) = x³ - 3x² = terjadi di x =;0;1;2;3;B
+INTEGRAL;Integral dari ∫ (6x² - 4x + 3) dx =;2x³ - 2x² + 3x + C;3x³ - 2x² + 3x + C;6x³ - 2x² + 3x + C;2x³ - 4x² + 3x + C;A
+INTEGRAL;Integral dari ∫ cos 3x dx =;3 sin 3x + C;(1/3) sin 3x + C;-3 sin 3x + C;-(1/3) sin 3x + C;B
+INTEGRAL;Integral dari ∫ e⁻ˣ dx =;e⁻ˣ + C;-e⁻ˣ + C;-eˣ + C;eˣ + C;B
+INTEGRAL;Luas daerah di bawah kurva y = x² dari x = -1 sampai x = 1 =;(1/3);(2/3);1;(4/3);B
+INTEGRAL;Volume benda putar jika daerah y = √x diputar mengelilingi sumbu x dari x = 0 sampai x = 4 =;4π;8π;16π;32π;B
+PERSAMAAN KUADRAT;Akar-akar persamaan 2x² + 7x + 3 = 0 adalah...;-3 dan -1/2;3 dan 1/2;3 dan -1/2;-3 dan 1/2;A
+PERSAMAAN KUADRAT;Diskriminan persamaan 3x² - 5x + 2 = 0 adalah...;-1;1;11;-11;B
+PERSAMAAN KUADRAT;Jika akar-akar persamaan kuadrat adalah -1 dan 4, persamaannya adalah...;x² - 3x - 4 = 0;x² + 3x - 4 = 0;x² - 5x + 4 = 0;x² + 5x + 4 = 0;B
+PERSAMAAN KUADRAT;Sumbu simetri grafik fungsi kuadrat y = -2x² + 8x - 5 adalah x = ...;-2;2;-4;4;B
+PERSAMAAN KUADRAT;Nilai maksimum/minimum fungsi kuadrat y = x² - 2x + 3 terjadi di y = ...;1;2;3;4;B

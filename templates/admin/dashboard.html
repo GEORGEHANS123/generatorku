@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}"> {# Memuat CSS khusus admin #}
+</head>
+<body>
+    <div class="admin-container"> {# Menggunakan class container admin #}
+        <h1>Admin Dashboard</h1>
+        <p>Selamat datang di panel admin, <strong>{{ session['username'] }}</strong>!</p>
+
+        <ul class="flashes"> {# Menggunakan class flashes umum #}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </ul>
+
+        <h2>Manajemen Pengguna</h2>
+        <table class="admin-table"> {# Menggunakan class table admin #}
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Status Admin</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ 'Ya' if user.is_admin == 1 else 'Tidak' }}</td>
+                    <td>
+                        <div class="admin-button-group"> {# Menggunakan class button group admin #}
+                            <form action="{{ url_for('toggle_admin', user_id=user.id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="admin-button toggle" 
+                                    onclick="return confirm('Apakah Anda yakin ingin mengubah status admin pengguna {{ user.username }}?');">
+                                    {{ 'Non-aktifkan Admin' if user.is_admin == 1 else 'Jadikan Admin' }}
+                                </button>
+                            </form>
+                            <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="admin-button delete" 
+                                    onclick="return confirm('PERINGATAN: Apakah Anda yakin ingin menghapus pengguna {{ user.username }}? Tindakan ini tidak dapat dibatalkan.');">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Manajemen Konten & AI</h2>
+        <a href="{{ url_for('admin_datasets') }}" class="admin-button">Lihat/Kelola Dataset Soal</a>
+
+        <hr>
+        <div class="admin-links"> {# Menggunakan div untuk menata link #}
+            <a href="{{ url_for('dashboard') }}" class="admin-button">Kembali ke Dashboard Utama</a>
+            <a href="{{ url_for('logout') }}" class="admin-button delete">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

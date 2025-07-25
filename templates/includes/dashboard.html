@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GeneratorKu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">GeneratorKu</h1>
+            <p class="hero-subtitle">Platform Pembuat Kuis Otomatis</p>
+            <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            {# Tampilkan tombol Admin Dashboard hanya jika pengguna adalah admin #}
+            {% if session.get('is_admin') %}
+                <a href="{{ url_for('admin_dashboard') }}" class="btn-secondary">Admin Dashboard</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Selamat datang, {{ username }}!</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <div class="card-shadow controls-card">
+                <h2>Generate Kuis dari Database</h2>
+                <p style="margin-bottom: 30px; color: var(--text-light);">Pilih level dan jumlah soal untuk kuis dari dataset yang sudah ada.</p>
+                <div class="controls-grid">
+                    <div class="input-group">
+                        <label for="level-select">Pilih Level:</label>
+                        <select id="level-select">
+                            <option value="SD">Sekolah Dasar (SD)</option>
+                            <option value="SMP">Sekolah Menengah Pertama (SMP)</option>
+                            <option value="SMA">Sekolah Menengah Atas (SMA)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="num-questions">Jumlah Soal (1-20):</label>
+                        <input type="number" id="num-questions" value="5" min="1" max="20">
+                    </div>
+                    <button class="btn-primary" onclick="generateQuiz('manual')">Buat Kuis Manual</button>
+                </div>
+            </div>
+
+            <div class="card-shadow controls-card" style="margin-top: 40px;">
+                <h2>Generate Kuis dengan AI</h2>
+                <p style="margin-bottom: 30px; color: var(--text-light);">Biarkan AI membuat soal kuis baru untuk Anda berdasarkan topik, dengan gaya dari dataset Anda.</p>
+                <div class="controls-grid">
+                    <div class="input-group">
+                        <label for="ai-topic">Topik Kuis:</label>
+                        <input type="text" id="ai-topic" placeholder="Contoh: Sejarah Indonesia, Fisika Kuantum, Biologi Sel">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ai-context-level">Gaya Soal Mirip Dataset:</label>
+                        <select id="ai-context-level">
+                            <option value="SD">Sekolah Dasar (SD)</option>
+                            <option value="SMP">Sekolah Menengah Pertama (SMP)</option>
+                            <option value="SMA">Sekolah Menengah Atas (SMA)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="ai-num-questions">Jumlah Soal AI (1-10):</label>
+                        <input type="number" id="ai-num-questions" value="5" min="1" max="10">
+                    </div>
+                    <button class="btn-primary" onclick="generateQuiz('ai')">Buat Kuis dengan AI</button>
+                </div>
+                <p style="font-size: 0.9em; color: var(--text-light); margin-top: 20px;">
+                    *Proses AI mungkin membutuhkan waktu beberapa detik dan memerlukan Ollama yang terinstall lokal dengan model `llama3`.
+                </p>
+            </div>
+
+            <div id="quiz-container" class="quiz-display card-shadow" style="display: none;">
+                <p class="initial-message">Soal kuis akan muncul di sini setelah Anda mengklik "Buat Kuis".</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 GeneratorKu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+/* static/css/style.css */
+
+/* Palet Warna (Inspirasi Material Design): */
+:root {
+    --primary-color: #4285F4; /* Biru Google */
+    --primary-dark: #1A73E8;
+    --secondary-color: #34A853; /* Hijau Google */
+    --text-dark: #333;
+    --text-light: #666;
+    --bg-light: #f8f9fa;
+    --bg-card: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --light-gray: #f2f2f2; /* Tambahan untuk hover options */
+    --accent-color-light: #e3f2fd; /* Untuk score summary */
+    --dark-text: #212121; /* Untuk score summary */
+    --border-radius: 12px; /* Variabel untuk radius sudut */
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05); /* Shadow kecil */
+    --shadow-md: 0 8px 25px var(--shadow-color); /* Shadow sedang */
+}
+
+/* Base Styles & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+/* Utility Classes */
+.card-shadow {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 25px;
+}
+
+/* Header - Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6ab7f5 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hero-title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.3em;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Main Content Layout */
+.main-content {
+    flex: 1; /* Agar main content mengisi ruang dan footer di bawah */
+    padding: 40px 0;
+}
+
+/* Controls Card (for Dashboard) */
+.controls-card {
+    text-align: center;
+}
+
+.controls-card h2 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Note: If you want inputs to stretch to full width within admin forms, you might need to adjust this in admin.css specifically */
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+
+select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: var(--bg-card);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* This also applies to textareas because they are similar inputs */
+textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: var(--bg-card);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical; /* Allow vertical resizing for textareas */
+}
+
+
+select:focus, input[type="number"]:focus, input[type="text"]:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2); /* Blue shadow */
+    outline: none;
+}
+
+/* Custom select arrow */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234285F4%22%20d%3D%22M287%2069.4L146.2%20205.9%205.4%2069.4c-1.6-1.6-3.6-2.4-5.6-2.4h-1.6c-4.4%200-8%203.6-8%208v24.6c0%202.2%200.9%204.3%202.4%205.8l130.8%20130.8c3.2%203.2%207.6%204.8%2012%204.8s8.8-1.6%2012-4.8l130.8-130.8c1.6-1.6%202.4-3.6%202.4-5.8V75.8c0-4.4-3.6-8-8-8h-1.6c-2%200-4%200.8-5.6%202.4z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Agar memenuhi grid */
+    align-self: flex-end; /* Rata bawah di grid */
+    text-decoration: none; /* For links */
+    display: inline-block; /* Ensure padding works for links */
+    text-align: center; /* Center text in case it's a link */
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-decoration: none; /* For links */
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px; /* For multiple buttons in a row */
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+
+/* --- START: Quiz Specific Styles --- */
+
+/* Spinner for loading messages */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Status Messages (Loading, Error, Initial) */
+.status-message {
+    text-align: center;
+    font-size: 1.1em;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.loading-message {
+    background-color: #e0f7fa; /* Light Cyan */
+    color: #00796b; /* Dark Teal */
+    border: 1px solid #b2ebf2;
+}
+
+.error-message {
+    background-color: #ffebee; /* Light Red */
+    color: var(--error-color);
+    border: 1px solid #ffcdd2;
+}
+
+.initial-message {
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+/* Quiz Display Container */
+.quiz-display {
+    min-height: 250px; /* Memberi ruang agar pesan loading terlihat */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Mengubah ini agar konten dimulai dari atas */
+    align-items: center; /* Untuk menengahkan pesan awal/error */
+    text-align: center; /* Untuk menengahkan teks pesan awal/error */
+    padding: 40px; /* Padding lebih besar */
+}
+
+/* Individual Question Card */
+.question-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    width: 100%; /* Agar responsif */
+    animation: fadeIn 0.6s ease-out forwards; /* Animasi muncul */
+    opacity: 0; /* Dimulai dari tidak terlihat */
+}
+
+.question-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* Options List */
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--text-dark);
+    cursor: pointer; /* Menunjukkan bisa diklik */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid transparent; /* Tambahkan border transparan agar tidak bergeser saat ada border */
+}
+
+.options-list li:hover {
+    background-color: var(--light-gray); /* Highlight saat hover */
+}
+
+.options-list input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* Feedback Area (Correct/Incorrect) */
+.feedback-area {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    text-align: left;
+    font-size: 1em;
+}
+
+.feedback-correct {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.feedback-incorrect {
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+/* Styling for selected options feedback */
+.options-list li.correct {
+    background-color: #e6ffed; /* Light green background */
+    border-color: var(--success-color); /* Green border */
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2); /* Soft green glow */
+}
+
+.options-list li.incorrect {
+    background-color: #ffebee; /* Light red background */
+    border-color: var(--error-color); /* Red border */
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2); /* Soft red glow */
+}
+
+/* Disable pointer events on radio/labels once answers are checked */
+/* Added a class 'quiz-checked' to the quiz-container when answers are checked */
+.quiz-checked .question-card .options-list li {
+    pointer-events: none; /* Nonaktifkan klik pada opsi setelah kuis diperiksa */
+}
+.quiz-checked .question-card input[type="radio"] {
+    cursor: default; /* Ubah kursor menjadi default */
+}
+
+
+/* Score Summary Styles */
+.score-summary {
+    text-align: center;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: var(--accent-color-light); /* Contoh light accent */
+    color: var(--dark-text); /* Contoh dark text */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s ease-out forwards; /* Animasi muncul */
+}
+
+.score-summary h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.score-summary p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* --- END: Quiz Specific Styles --- */
+
+
+/* Flash Messages (for login/register feedback) */
+/* Note: These styles are for general flashes. admin.css has more specific ones for .admin-container .flash-messages */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.flashes li {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.flashes .success {
+    background-color: #e6ffed; /* Light Green */
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+}
+
+.flashes .error {
+    background-color: #ffebee; /* Light Red */
+    color: var(--error-color);
+    border: 1px solid #ffcdd2;
+}
+
+.flashes .warning {
+    background-color: #fff3cd; /* Light Yellow */
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.flashes .info {
+    background-color: #e2eafc; /* Light Blue */
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+
+/* Footer */
+.footer-section {
+    background-color: var(--text-dark);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3em;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+    }
+    .controls-grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+    }
+    /* .input-group, .btn-primary { width: 100%; } -- This is already set by default for most cases */
+    .card-shadow {
+        padding: 20px;
+    }
+    .question-card h3 {
+        font-size: 1.2em;
+    }
+    .options-list li {
+        font-size: 1em;
+    }
+    .quiz-display {
+        padding: 20px;
+    }
+    .score-summary {
+        padding: 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Auth Page Specific Styles */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6ab7f5 100%);
+    padding: 20px;
+}
+
+.auth-container {
+    max-width: 450px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-shadow: none; /* Override hero-title text-shadow */
+}
+
+.auth-container h2 {
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.auth-container .input-group {
+    margin-bottom: 20px;
+    align-items: stretch; /* Membuat input group memenuhi lebar */
+}
+
+.auth-container .input-group label {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.auth-container .btn-primary {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.auth-link {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+.auth-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Hasil Kuis{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3 text-center">Hasil Kuis Anda</h2>
+    <div class="alert alert-info fs-5 text-center">
+        Skor Anda: <strong>{{ score }}</strong> dari <strong>{{ total_questions }}</strong> soal.
+    </div>
+
+    <!-- Konten yang akan dicetak ke PDF -->
+    <div id="quiz-results-pdf-content">
+        <h3 class="mt-4 mb-3 text-center">Rincian Jawaban:</h3>
+        {% if results %}
+            <div class="list-group">
+                {% for result in results %}
+                    <div class="list-group-item mb-3 {% if result.is_correct %}list-group-item-success{% else %}list-group-item-danger{% endif %} shadow-sm">
+                        <h5 class="mb-2">Soal {{ loop.index }}: {{ result.question_text }}</h5>
+                        
+                        <p class="mb-1">
+                            Pilihan Anda: <strong>
+                                {% if result.user_answer %}
+                                    {{ result.user_answer }}
+                                {% else %}
+                                    <span class="text-muted">(Tidak Dijawab)</span>
+                                {% endif %}
+                            </strong>
+                        </p>
+                        <p class="mb-1">
+                            Jawaban Benar: <strong>{{ result.correct_answer }}</strong>
+                        </p>
+                        
+                        <div class="options-display mt-2">
+                            {% for option in result.options %}
+                                <span class="badge 
+                                    {% if option == result.correct_answer %}
+                                        bg-success 
+                                    {% elif option == result.user_answer and not result.is_correct %}
+                                        bg-danger 
+                                    {% else %}
+                                        bg-secondary text-white 
+                                    {% endif %}
+                                    me-2 mb-1 p-2 rounded-pill">
+                                    {{ option }}
+                                </span>
+                            {% endfor %}
+                        </div>
+
+                        {% if not result.is_correct %}
+                            <p class="text-danger mt-2 fw-bold">Jawaban Anda Salah.</p>
+                        {% else %}
+                            <p class="text-success mt-2 fw-bold">Jawaban Anda Benar!</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-muted">Tidak ada rincian hasil kuis yang tersedia.</p>
+        {% endif %}
+    </div> <!-- Akhir dari quiz-results-pdf-content -->
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg me-2">Kembali ke Dashboard</a>
+        {# Jika Anda punya route home terpisah atau login #}
+        {# <a href="{{ url_for('home') }}" class="btn btn-secondary btn-lg me-2">Beranda</a> #} 
+        <button id="printPdfBtn" class="btn btn-info btn-lg">Cetak ke PDF</button> {# Tombol cetak PDF #}
+    </div>
+</div>
+{% endblock %}

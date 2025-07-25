@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Soal Kuis - Admin GeneratorKu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Admin Panel</h1>
+            <p class="hero-subtitle">Tambah Soal Kuis Baru</p>
+            <nav class="main-nav">
+                <a href="{{ url_for('admin_questions') }}" class="btn-secondary">Kembali ke Daftar Soal</a>
+                <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="admin-container"> {# Wrap flashes in admin-container #}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('add_question') }}" method="POST">
+                    <div class="input-group">
+                        <label for="level">Level:</label>
+                        <select id="level" name="level" required>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA">SMA</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="question">Soal:</label>
+                        <textarea id="question" name="question" rows="4" required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="option_a">Pilihan A:</label>
+                        <input type="text" id="option_a" name="option_a" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="option_b">Pilihan B:</label>
+                        <input type="text" id="option_b" name="option_b" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="option_c">Pilihan C:</label>
+                        <input type="text" id="option_c" name="option_c" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="option_d">Pilihan D:</label>
+                        <input type="text" id="option_d" name="option_d" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="correct_answer">Jawaban Benar (harus sama persis dengan salah satu pilihan di atas):</label>
+                        <input type="text" id="correct_answer" name="correct_answer" required>
+                    </div>
+                    <button type="submit" class="admin-button">Tambah Soal</button>
+                </form>
+            </div> {# End of admin-container #}
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 GeneratorKu. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

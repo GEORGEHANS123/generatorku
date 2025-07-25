@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis - GeneratorKu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">GeneratorKu Kuis</h1>
+            <p class="hero-subtitle">Kuis yang dihasilkan berdasarkan pilihan Anda</p>
+            <a href="{{ url_for('dashboard') }}" class="btn-secondary">Kembali ke Dashboard</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Kuis Anda</h2>
+
+            <div id="quiz-container" class="quiz-display card-shadow">
+                <p class="initial-message status-message">Memuat kuis Anda. Harap tunggu...</p>
+                <!-- Konten kuis (form, soal, opsi) akan dimuat di sini oleh JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 GeneratorKu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

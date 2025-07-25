@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Dataset - Admin GeneratorKu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Admin Panel</h1>
+            <p class="hero-subtitle">Kelola Dataset Kuis</p>
+            <nav class="main-nav">
+                <a href="{{ url_for('admin_dashboard') }}" class="btn-secondary">Kembali ke Admin Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <div class="admin-container"> {# Menggunakan class container admin #}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <div class="card-shadow admin-section">
+                    <h3>Unggah Dataset CSV Baru</h3>
+                    <form action="{{ url_for('admin_datasets') }}" method="POST" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <label for="dataset_file">Pilih File CSV:</label>
+                            <input type="file" id="dataset_file" name="dataset_file" accept=".csv" required>
+                            <small>Pastikan file CSV memiliki kolom: Pertanyaan, Pilihan A, Pilihan B, Pilihan C, Pilihan D, Jawaban Benar</small>
+                        </div>
+                        <button type="submit" class="admin-button">Unggah Dataset</button>
+                    </form>
+                </div>
+
+                <div class="card-shadow admin-section">
+                    <h3>Daftar Dataset Bawaan</h3>
+                    {% if default_datasets %}
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Nama File</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for level, filepath in default_datasets.items() %}
+                            <tr>
+                                <td>{{ level }}</td>
+                                <td>{{ filepath.split('/')[-1] }}</td> {# Hanya tampilkan nama file dari path #}
+                                <td>Bawaan Sistem</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>Tidak ada dataset bawaan yang terdaftar.</p>
+                    {% endif %}
+                </div>
+
+                <div class="card-shadow admin-section">
+                    <h3>Daftar Dataset yang Diunggah</h3>
+                    {% if uploaded_datasets %}
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>Ukuran (MB)</th>
+                                <th>Tanggal Unggah</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dataset in uploaded_datasets %}
+                            <tr>
+                                <td>{{ dataset.filename }}</td>
+                                <td>{{ "%.2f"|format(dataset.size / (1024 * 1024)) }}</td>
+                                <td>{{ dataset.upload_date }}</td>
+                                <td>
+                                    <form action="{{ url_for('delete_dataset', filename=dataset.filename) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus dataset {{ dataset.filename }}?');" style="display:inline-block;">
+                                        <button type="submit" class="admin-button delete">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>Belum ada dataset yang diunggah oleh admin.</p>
+                    {% endif %}
+                </div>
+            </div> {# End of admin-container #}
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 GeneratorKu. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

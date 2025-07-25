@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Soal Kuis - Admin GeneratorKu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Admin Panel</h1>
+            <p class="hero-subtitle">Kelola Soal Kuis</p>
+            <nav class="main-nav">
+                <a href="{{ url_for('admin_dashboard') }}" class="btn-secondary">Kembali ke Admin Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            {# Flash messages section - using .flash-messages and categories inside admin-container #}
+            {# The .admin-container selector in admin.css ensures these specific styles apply #}
+            <div class="admin-container"> {# Wrap flashes in admin-container to apply its styles #}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3>Daftar Soal Kuis</h3>
+                    <a href="{{ url_for('add_question') }}" class="admin-button">Tambah Soal Baru</a>
+                </div>
+                
+                {% if questions %}
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Level</th>
+                            <th>Soal</th>
+                            <th>Jawaban Benar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for question in questions %}
+                        <tr>
+                            <td>{{ question.id }}</td>
+                            <td>{{ question.level }}</td>
+                            <td>{{ question.question | truncate(100, true) }}</td> {# Tampilkan sebagian soal #}
+                            <td>{{ question.correct_answer }}</td>
+                            <td class="admin-button-group">
+                                <a href="{{ url_for('edit_question', question_id=question.id) }}" class="admin-button">Edit</a>
+                                <form action="{{ url_for('delete_question', question_id=question.id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus soal ini?');" style="display:inline-block;">
+                                    <button type="submit" class="admin-button delete">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>Belum ada soal kuis yang ditambahkan.</p>
+                {% endif %}
+            </div> {# End of admin-container #}
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2024 GeneratorKu. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
